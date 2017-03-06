@@ -1,0 +1,68 @@
+<body id="container">
+  <center><h1 id="head">Wiki-Find</h1></center>
+  <center><div class="area1">
+  <center><textarea class="text hvr-glow" onfocus="remove(this)" id="input">Let's find it</textarea><button class="btn btn-primary fadeOut" id="button" onclick="find()">submit</button></center>
+    </div></center>
+  <div id="hidden" style="display:none">
+    <center> <br>
+      <div class="link">
+        <b><span class="list" id="l0"></span></b>
+        <br>
+        <span id="s0" class="description"></span>
+        <br>
+        <a id="a0" href="" target="_blank"></a>
+      </div>
+      <div class="link">
+        <b><span class="list" id="l1"></span></b>
+        <br>
+        <span id="s1" class="description"></span>
+        <br>
+        <a id="a1" href="" target="_blank"></a>
+      </div>
+      <div class="link">
+        <b><span class="list" id="l2"></span></b>
+        <br>
+        <span id="s2" class="description"></span>
+        <br>
+        <a id="a2" href="" target="_blank"></a>
+      </div>
+      <div class="link">
+        <b><span class="list" id="l3"></span></b>
+        <br>
+        <span id="s3" class="description"></span>
+        <br>
+        <a id="a3" href="" target="_blank"></a>
+      </div>
+      <div class="link">
+        <b><span class="list" id="l4"></span></b>
+        <br>
+        <span id="s4" class="description"></span>
+        <br>
+        <a id="a4" href="" target="_blank"></a>
+      </div> 
+    </center>
+  </div>
+</body>
+<script style="text/javascript">
+  
+document.getElementById("input").onkeydown = (function(event) {
+  if(event.keyCode == 13 && !event.shiftKey) {
+    event.preventDefault()
+    find()
+  }
+})
+  
+function remove(element) {
+  if($("#input").select().val() === "Let's find it") {
+  element.value = '';
+  };
+};
+  function getSearch() {
+    search = $("#input").select().val();
+    url = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search="+search+"&callback=?";
+  };
+  
+  function blurIt() {
+    document.getElementById("button").blur();
+  }
+</script>
